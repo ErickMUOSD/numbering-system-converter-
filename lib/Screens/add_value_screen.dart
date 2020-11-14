@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:converter/Controllers/valuescreencontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -26,6 +28,7 @@ class AddValueScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return GetBuilder<AddValueScreenController>(
       init: AddValueScreenController(),
       builder: (_) => SafeArea(
@@ -34,7 +37,7 @@ class AddValueScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: 140.0,
+                
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -69,16 +72,7 @@ class AddValueScreen extends StatelessWidget {
                             fontSize: 60.0,
                             color: kWhiteColor,
                           ),
-                          decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.only(bottom: 10.0, left: 20.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: kColorTransparent),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: kColorTransparent),
-                            ),
-                          ),
+                          decoration: decorationTextFiled,
                         ),
                       ),
                     )
@@ -87,7 +81,6 @@ class AddValueScreen extends StatelessWidget {
               ),
               Expanded(
                 child: GetBuilder<AddValueScreenController>(
-                  
                   builder: (_) => GridView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -95,19 +88,14 @@ class AddValueScreen extends StatelessWidget {
                       childAspectRatio: 1.7,
                       mainAxisSpacing: 15.0,
                       crossAxisSpacing: 5.0,
-
-                    
                     ),
-                    
                     padding:
                         EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-                       
                     itemCount: _.buttons.length,
                     itemBuilder: (context, index) {
                       return ButtonsInTextField(
                         number: _.buttons[index],
                         function: () {
-                        
                           _.writeValue(_.buttons[index]);
                         },
                       );
@@ -118,17 +106,12 @@ class AddValueScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
+                 
                   child: GetBuilder<AddValueScreenController>(
                     builder: (_) => Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        ButtonsInTextField(
-                          number: '.',
-                          function: () {
-                            _.writeValue('.');
-                          },
-                        ),
                         ButtonsInTextField(
                           number: '0',
                           function: () {

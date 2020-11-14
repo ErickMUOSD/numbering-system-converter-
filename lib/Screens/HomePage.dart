@@ -65,35 +65,22 @@ class HomePage extends StatelessWidget {
                     child: Text(
                       _.textoftextfield1,
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 40,
                           color: kWhiteColor,
-                          fontWeight: FontWeight.w200),
-                    ),
-                  ),
-                ),
-                GetBuilder<GlobalController>(
-                  builder: (_) => GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      'EUR',
-                      style: Theme.of(context).textTheme.headline5.copyWith(
-                            color: kWhiteColor.withOpacity(0.5),
                           ),
                     ),
                   ),
                 ),
+               
                 SizedBox(
                   height: 120.0,
                 ),
-                Text('USD',
-                    style: Theme.of(context).textTheme.headline5.copyWith(
-                          color: kMainColor.withOpacity(0.5),
-                        )),
+             
                 GetBuilder<GlobalController>(
                   id: 'TextOfTexfield',
                   builder: (_
                   ) => Text(_.textotextfield2,
-                      style: TextStyle(fontSize: 30.0, color: kMainColor),
+                      style: TextStyle(fontSize: 40.0, color: kMainColor),
                       ),
                 ),
                 DropDownItemButtonTwo(),

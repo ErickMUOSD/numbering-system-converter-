@@ -72,22 +72,20 @@ class GlobalController extends GetxController {
   }
 
   void chooseoption(String option1, String option2) {
-    print('works');
+  
     if (option1 == 'Decimal' && option2 == 'Binario') {
-      print('Joined DecimalBinario');
+   
       _textTextField2 = _decimalBinario(_textTextField1);
     } else if (option1 == 'Binario' && option2 == 'Decimal') {
-      print('Joined BinarioDecimal');
+     
       _textTextField2 = _binarioDecimal(_textTextField1);
     } else if (option1 == 'Decimal' && option2 == 'Hexadecimal') {
-      print('Joined DecimalHexadecimal');
+     
       _textTextField2 = _decimalHexadecimal(_textTextField1);
     } else if (option1 == 'Hexadecimal' && option2 == 'Decimal') {
-      print('Joined HexadecimalDecimal');
+    
       _textTextField2 = _hexadecimalDecimal(_textTextField1);
-    } else {
-      print('option incorrect');
-    }
+    } 
     update(['TextOfTexfield']);
   }
 
@@ -104,7 +102,10 @@ class GlobalController extends GetxController {
       binaryValue = division.truncate().toDouble();
       finalNumber += ' ${resto.truncate()}';
     }
-    return finalNumber.split('').reversed.join();
+  print('Decimal Binario ${finalNumber.split('').reversed.join().trim()}');
+  print('DB ${finalNumber.length}');
+  print(finalNumber);
+
   }
 
 //COnvertir  Binario a decimal
@@ -112,7 +113,7 @@ class GlobalController extends GetxController {
     List<String> _listStringBinary = [];
     List<int> _listIntBinary = [];
     int counter = 0;
-    // int aux = 0;
+    
     int finalNumber = 0;
     int numberAux = 0;
 
@@ -122,7 +123,7 @@ class GlobalController extends GetxController {
     _listIntBinary = _listIntBinary.reversed.toList();
 
     while (counter < _listIntBinary.length) {
-      // aux = pow(2, counter);
+          
 
       numberAux = _listIntBinary[counter] * pow(2, counter);
 
@@ -130,6 +131,8 @@ class GlobalController extends GetxController {
 
       counter++;
     }
+    print('Binario a Decimal ${finalNumber.toString()}');
+    
     return finalNumber.toString();
   }
 
