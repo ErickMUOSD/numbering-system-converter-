@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:converter/Controllers/valuescreencontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -8,27 +6,8 @@ import 'package:get/get.dart';
 import 'package:converter/widgets/buttonsintextfield.dart';
 
 class AddValueScreen extends StatelessWidget {
-//   Route _createRoute() {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       var begin = Offset(0.0, 1.0);
-//       var end = Offset.zero;
-//       var curve = Curves.ease;
-
-//       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-//       return SlideTransition(
-//         position: animation.drive(tween),
-//         child: child,
-//       );
-//     },
-//   );
-// }
-
   @override
   Widget build(BuildContext context) {
-
     return GetBuilder<AddValueScreenController>(
       init: AddValueScreenController(),
       builder: (_) => SafeArea(
@@ -37,7 +16,6 @@ class AddValueScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -93,43 +71,46 @@ class AddValueScreen extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
                     itemCount: _.buttons.length,
                     itemBuilder: (context, index) {
-                      return ButtonsInTextField(
-                        number: _.buttons[index],
-                        function: () {
-                          _.writeValue(_.buttons[index]);
-                        },
-                      );
+                 
+                   return ButtonsValueScreen(
+                          isVisible: _.isEnabled(index),
+                          number: _.buttons[index],
+                          function: () {
+                            _.buttons[index] != '✔' ?_.writeValue(_.buttons[index]) : _.goBackWithData();
+                            
+                          },
+                        );
                     },
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                 
-                  child: GetBuilder<AddValueScreenController>(
-                    builder: (_) => Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        ButtonsInTextField(
-                          number: '0',
-                          function: () {
-                            _.writeValue('0');
-                          },
-                        ),
-                        ButtonsInTextField(
-                          number: '✔',
-                          colorLast: true,
-                          function: () {
-                            _.goBackWithData();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+              // Padding(
+              //   padding: const EdgeInsets.all(10.0),
+              //   child: Container(
+              //     child: GetBuilder<AddValueScreenController>(
+              //       builder: (_) => Row(
+              //         mainAxisSize: MainAxisSize.max,
+              //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //         children: <Widget>[
+              //           ButtonsValueScreen(
+              //             number: '0',
+              //             function: () {
+              //               _.writeValue('0');
+              //             },
+              //           ),
+              //           ButtonsValueScreen(
+              //             isVisible: true,
+              //             number: '✔',
+              //             colorLast: true,
+              //             function: () {
+              //               _.goBackWithData();
+              //             },
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

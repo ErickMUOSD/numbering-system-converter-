@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:converter/constants.dart';
-class ButtonsInTextField extends StatelessWidget {
-  const ButtonsInTextField(
-      {Key key, this.number, this.colorLast = false, this.function})
+
+final controller = TextEditingController();
+
+class ButtonsValueScreen extends StatelessWidget {
+  const ButtonsValueScreen(
+      {Key key,
+      this.number,
+      this.colorLast = false,
+      this.function,
+      @required this.isVisible = true})
       : super(key: key);
 
   final String number;
   final Function function;
   final bool colorLast;
+  final bool isVisible;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: function,
+      onTap: isVisible ? function : null,
       child: Container(
         width: 75.0,
         height: 75.0,

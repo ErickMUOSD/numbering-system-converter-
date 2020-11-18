@@ -1,4 +1,4 @@
-import 'package:converter/Controllers/globalcontroller.dart';
+import 'package:converter/Controllers/homecontroller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,8 +13,8 @@ class HomePage extends StatelessWidget {
     double sizeH = Get.height;
     double sizeW = Get.width;
 
-    return GetBuilder<GlobalController>(
-      init: GlobalController(),
+    return GetBuilder<HomeController>(
+      init: HomeController(),
       builder: (_) => Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: Stack(
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 40,
                     backgroundColor: kMainColor,
-                    child: GetBuilder<GlobalController>(
+                    child: GetBuilder<HomeController>(
                       id: 'ChangeValueslist',
                       builder: (_) => InkWell(
                         onTap: () {
@@ -56,8 +56,8 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 DropDownItemButtonOne(),
-                GetBuilder<GlobalController>(
-                  id: 'TextOfTexfield',
+                GetBuilder<HomeController>(
+                  id: 'TextOfTextfield',
                   builder: (_) => InkWell(
                     onTap: () {
                       _.getData();
@@ -76,8 +76,8 @@ class HomePage extends StatelessWidget {
                   height: 120.0,
                 ),
              
-                GetBuilder<GlobalController>(
-                  id: 'TextOfTexfield',
+                GetBuilder<HomeController>(
+                  id: 'TextOfTextfield',
                   builder: (_
                   ) => Text(_.textotextfield2,
                       style: TextStyle(fontSize: 40.0, color: kMainColor),

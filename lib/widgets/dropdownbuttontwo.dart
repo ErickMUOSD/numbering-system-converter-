@@ -1,14 +1,14 @@
 import 'package:converter/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:converter/Controllers/globalcontroller.dart';
+import 'package:converter/Controllers/homecontroller.dart';
 
 class DropDownItemButtonTwo extends StatelessWidget {
  
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<GlobalController>(
+    return GetBuilder<HomeController>(
       id: "ItemDropDown2",
       builder: (_) => Center(
         child: DropdownButtonHideUnderline(
