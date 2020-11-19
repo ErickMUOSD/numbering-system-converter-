@@ -60,10 +60,10 @@ class HomePage extends StatelessWidget {
                   id: 'TextOfTextfield',
                   builder: (_) => InkWell(
                     onTap: () {
-                      _.getData();
+                      _.getDataSecondPage();
                     },
                     child: Text(
-                      _.textoftextfield1,
+                      _.valueTextField1,
                       style: TextStyle(
                           fontSize: 40,
                           color: kWhiteColor,
@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                 GetBuilder<HomeController>(
                   id: 'TextOfTextfield',
                   builder: (_
-                  ) => Text(_.textotextfield2,
+                  ) => Text(_.valueTextField2,
                       style: TextStyle(fontSize: 40.0, color: kMainColor),
                       ),
                 ),

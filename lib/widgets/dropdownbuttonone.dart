@@ -15,7 +15,7 @@ class DropDownItemButtonOne extends StatelessWidget {
                   child: DropdownButton<String>(
                     icon: Icon(Icons.arrow_downward, color: kWhiteColor,),
             dropdownColor:  kMainColor ,
-            value: _.valueDrop1,
+            value: _.valueListDropDown1,
             items: _.listItems.map((String value) {
               return DropdownMenuItem<String>(
                 value: value,
@@ -29,7 +29,7 @@ class DropDownItemButtonOne extends StatelessWidget {
               );
             }).toList(),
             onChanged: (String value){
-               _.updateDropDown1(value);
+               _.updateDropDownList1(value);
             }
           ),
         ),
