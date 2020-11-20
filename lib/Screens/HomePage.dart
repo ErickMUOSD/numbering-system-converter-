@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             CustomPaint(
               size: Size.fromHeight(sizeH * 0.6), //2
-              painter: ButtonPainter(avatarRadius: 40, color: kMainColor), //3
+              painter: ButtonPainter(avatarRadius: 35, color: kMainColor), //3
             ),
             Positioned(
               height: sizeH * 1.1,
@@ -65,23 +65,21 @@ class HomePage extends StatelessWidget {
                     child: Text(
                       _.valueTextField1,
                       style: TextStyle(
-                          fontSize: 40,
-                          color: kWhiteColor,
-                          ),
+                        fontSize: 40,
+                        color: kWhiteColor,
+                      ),
                     ),
                   ),
                 ),
-               
                 SizedBox(
                   height: 120.0,
                 ),
-             
                 GetBuilder<HomeController>(
                   id: 'TextOfTextfield',
-                  builder: (_
-                  ) => Text(_.valueTextField2,
-                      style: TextStyle(fontSize: 40.0, color: kMainColor),
-                      ),
+                  builder: (_) => Text(
+                    _.valueTextField2,
+                    style: TextStyle(fontSize: 40.0, color: kMainColor),
+                  ),
                 ),
                 DropDownItemButtonTwo(),
               ],

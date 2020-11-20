@@ -16,7 +16,7 @@ class ButtonPainter extends CustomPainter{
     final shapeBounds = Rect.fromLTRB(0, 0, size.width, size.height-avatarRadius);
     final centerAvatar = Offset(shapeBounds.center.dx, shapeBounds.bottom);
 //2
-    final avatarBounds = Rect.fromCircle(center: centerAvatar, radius: avatarRadius).inflate(8);
+    final avatarBounds = Rect.fromCircle(center: centerAvatar, radius: avatarRadius).inflate(10);
 //3
     _drawBackground(canvas, shapeBounds, avatarBounds);
   }

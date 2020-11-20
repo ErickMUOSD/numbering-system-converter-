@@ -20,6 +20,7 @@ class AddValueScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
+
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: InkWell(
@@ -28,6 +29,7 @@ class AddValueScreen extends StatelessWidget {
                         },
                         child: Text(
                           'Tap to delete',
+
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -45,6 +47,7 @@ class AddValueScreen extends StatelessWidget {
                           showCursor: true,
                           readOnly: true,
                           autofocus: true,
+                          
                           cursorColor: kWhiteColor,
                           style: TextStyle(
                             fontSize: 60.0,
@@ -58,12 +61,13 @@ class AddValueScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
+                
                 child: GetBuilder<AddValueScreenController>(
                   builder: (_) => GridView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      childAspectRatio: 1.7,
+                      childAspectRatio: 1.7, //original 1.7,
                       mainAxisSpacing: 15.0,
                       crossAxisSpacing: 5.0,
                     ),
@@ -71,15 +75,16 @@ class AddValueScreen extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
                     itemCount: _.buttons.length,
                     itemBuilder: (context, index) {
-                 
-                   return ButtonsValueScreen(
-                          isVisible: _.isEnabled(index),
-                          number: _.buttons[index],
-                          function: () {
-                            _.buttons[index] != '✔' ?_.writeValue(_.buttons[index]) : _.goBackWithData();
-                            
-                          },
-                        );
+                      return ButtonsValueScreen(
+                        
+                        isVisible: _.isEnabled(index),
+                        number: _.buttons[index],
+                        function: () {
+                          _.buttons[index] != '✔'
+                              ? _.writeValue(_.buttons[index])
+                              : _.goBackWithData();
+                        },
+                      );
                     },
                   ),
                 ),

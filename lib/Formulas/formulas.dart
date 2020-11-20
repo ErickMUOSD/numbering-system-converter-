@@ -33,11 +33,11 @@ class Formulas {
   //COnvertir  Decimal Hexadecimal
   String decimalHexadecimal(String value) {
     double decimalDoubleValue, division, resto;
-    int i;
+    int i = 0;
     List<int> finalNumbers = [];
     String finalNumber = '';
     decimalDoubleValue = double.parse(value);
-    i = 0;
+   
     if (decimalDoubleValue >= 16) {
       division = decimalDoubleValue / 16;
       while (division >= 16) {
